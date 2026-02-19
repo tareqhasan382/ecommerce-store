@@ -1,5 +1,6 @@
 import Container from "./Components/Container";
 import Header from "./Components/Header";
+import Products from "./Components/Products";
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       </div>
 
       {/* Header / Product area */}
-      <Header/>
-
+      <Header />
+      {/* Product List */}
+      <Products />
     </Container>
   );
 }
