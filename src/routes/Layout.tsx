@@ -3,18 +3,22 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 
 const Layout = () => {
-    return (
-        <div className="bg-[#FDF8EE] w-full h-auto overflow-hidden">
-            {/*<div className="shadow fixed bg-[#FDF8EE] text-white top-0 z-50 w-full ">*/}
-            {/*  pt-[90px] bg-[#FDF8EE]  /!*<Navbar />*!/*/}
-            {/*</div>*/}
-            <Navbar/>
-            <div className="mx-auto w-full h-full ">
-                <Outlet></Outlet>
-            </div>
-            <Footer/>
-        </div>
-    );
+  return (
+    <div className="min-h-screen w-full bg-[#e0e0df] overflow-hidden">
+      
+      {/* Top spacing wrapper */}
+      <div className="pt-[32px]">
+        <Navbar />
+      </div>
+
+      {/* Page content */}
+      <main className="mx-auto w-full">
+        <Outlet />
+      </main>
+
+      <Footer />
+    </div>
+  );
 };
 
 export default Layout;
