@@ -1,11 +1,22 @@
+import Container from "./Components/Container";
+import Header from "./Components/Header";
+
 function App() {
-
-
   return (
-   <div className=" w-full flex justify-center ">
-    <h1 className=" text-2xl font-bold ">Hello World!</h1>
-   </div>
-  )
+    <Container className="bg-amber-300">
+
+      {/* Main hero area */}
+      <div className="w-full flex justify-center items-center h-[265px]">
+        <h1 className="font-rubik font-bold text-[200px] leading-[223.5px] tracking-normal uppercase text-center whitespace-nowrap">
+          DO IT <span className=" text-blue-500 ">RIGHT</span>
+        </h1>
+      </div>
+
+      {/* Header / Product area */}
+      <Header/>
+
+    </Container>
+  );
 }
 
-export default App
+export default App;
