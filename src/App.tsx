@@ -2,6 +2,7 @@ import Categories from "./Components/Categories";
 import Container from "./Components/Container";
 import Header from "./Components/Header";
 import Products from "./Components/Products";
+import Reviews from "./Components/Reviews";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       {/* Product List */}
       <Products />
       <Categories/>
+      <Reviews/>
     </Container>
   );
 }
