@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import product1 from "../assets/products/product_001.png";
 
 const Products = () => {
@@ -71,9 +72,11 @@ const Products = () => {
               <p className="text-gray-600 flex-1">{item.description}</p>
 
               {/* View Product Button always at bottom */}
+              <Link to={`/details/${item.id}`}>
               <button className="h-[48px] bg-black text-white uppercase rounded-2xl w-full font-semibold hover:bg-gray-800 transition mt-auto">
                 View Product
               </button>
+              </Link>
             </div>
           </div>
         ))}
