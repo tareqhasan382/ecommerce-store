@@ -17,6 +17,7 @@ const Layout = () => {
       </main>
 
       <Footer />
+      <p className=" w-full flex items-center justify-center my-5 ">© All rights reserved </p>
     </div>
   );
 };
