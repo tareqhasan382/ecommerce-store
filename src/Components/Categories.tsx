@@ -4,81 +4,66 @@ import product from "../assets/products/product_001.png";
 
 const Categories = () => {
     return (
-        <section className="w-full max-w-[1320px] mx-auto py-20">
+        <section className="w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-0 bg-black text-white">
             {/* Header */}
-            <div className="flex items-center justify-between mb-12">
-                <h1 className="text-4xl font-rubik font-bold uppercase tracking-wide text-gray-900">
+            <div className="flex items-center justify-between py-10 ">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-rubik font-bold uppercase tracking-wide">
                     Categories
                 </h1>
 
-                <div className="flex items-center gap-3">
-                    <button className="h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-black hover:text-white transition shadow">
-                        <IoIosArrowBack size={20} />
+                <div className="flex items-center gap-2 sm:gap-3">
+                    <button className="h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-gray-100 text-black transition shadow">
+                        <IoIosArrowBack size={18} />
                     </button>
-                    <button className="h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-black hover:text-white transition shadow">
-                        <IoIosArrowForward size={20} />
+                    <button className="h-8 w-8 sm:h-10 sm:w-10 flex items-center justify-center rounded-full bg-gray-100 text-black transition shadow">
+                        <IoIosArrowForward size={18} />
                     </button>
                 </div>
             </div>
 
             {/* Categories Grid */}
-            <div className=" w-full flex items-center justify-center ">
-                <div className="w-[60px]"></div>
-                <div className="grid grid-cols-2 gap-6 h-[600px] w-full">
-                {/* Category Card */}
-                <div className="relative group rounded-tl-3xl overflow-hidden bg-amber-100 p-10 flex flex-col justify-between">
+            <div className="grid grid-cols-1 sm:grid-cols-2 ml-20 ">
 
-                    {/* Image wrapper (CENTERED) */}
+                {/* Category Card 1 */}
+                <div className="relative group rounded-tl-3xl overflow-hidden bg-amber-100 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-[320px] sm:h-[480px] lg:h-[600px]">
                     <div className="flex items-center justify-center flex-1">
                         <img
                             src={product}
                             alt="Lifestyle Shoes"
-                            className="w-[280px] object-contain transition-transform duration-500 group-hover:scale-105"
+                            className="w-[160px] sm:w-[220px] lg:w-[280px] object-contain transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
-
-                    {/* Content */}
-                    <div className="flex items-end justify-between mt-8">
-                        <h3 className="text-4xl font-bold leading-tight text-gray-900 uppercase">
+                    <div className="flex items-end justify-between mt-4 sm:mt-6 lg:mt-8">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-gray-900 uppercase">
                             Lifestyle <br /> Shoes
                         </h3>
-
-                        <button className="h-12 w-12 flex items-center justify-center rounded-full bg-white shadow-md group-hover:bg-black group-hover:text-white transition">
-                            <RiExternalLinkFill size={22} />
+                        <button className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 flex items-center justify-center rounded-full bg-black shadow-md text-white transition">
+                            <RiExternalLinkFill size={18} />
                         </button>
                     </div>
-
-                    {/* Soft hover overlay */}
                     <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition" />
                 </div>
 
-                {/* Category Card */}
-                <div className="relative group overflow-hidden bg-amber-100 p-10 flex flex-col justify-between">
-
-                    {/* Image wrapper (CENTERED) */}
+                {/* Category Card 2 */}
+                <div className="relative group overflow-hidden bg-amber-100 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-[320px] sm:h-[480px] lg:h-[600px]">
                     <div className="flex items-center justify-center flex-1">
                         <img
                             src={product}
                             alt="Lifestyle Shoes"
-                            className="w-[280px] object-contain transition-transform duration-500 group-hover:scale-105"
+                            className="w-[160px] sm:w-[220px] lg:w-[280px] object-contain transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
-
-                    {/* Content */}
-                    <div className="flex items-end justify-between mt-8">
-                        <h3 className="text-4xl font-bold leading-tight text-gray-900 uppercase">
+                    <div className="flex items-end justify-between mt-4 sm:mt-6 lg:mt-8">
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight text-gray-900 uppercase">
                             Lifestyle <br /> Shoes
                         </h3>
-
-                        <button className="h-12 w-12 flex items-center justify-center rounded-full bg-white shadow-md group-hover:bg-black group-hover:text-white transition">
-                            <RiExternalLinkFill size={22} />
+                        <button className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 flex items-center justify-center rounded-full bg-black shadow-md text-white transition">
+                            <RiExternalLinkFill size={18} />
                         </button>
                     </div>
-
-                    {/* Soft hover overlay */}
                     <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition" />
                 </div>
-            </div>
+
             </div>
         </section>
     );
