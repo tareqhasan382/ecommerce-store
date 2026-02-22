@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import App from "../App";
 import NotFound from "../pages/NotFound";
 import ProductPage from "../pages/ProductPage";
+import Cart from "../pages/Cart";
 
 const routes = createBrowserRouter([
     {
@@ -20,6 +21,14 @@ const routes = createBrowserRouter([
                 element: (
 
                     <ProductPage />
+
+                ),
+            },
+            {
+                path: "/card",
+                element: (
+
+                    <Cart />
 
                 ),
             },
