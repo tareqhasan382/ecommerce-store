@@ -26,7 +26,7 @@ const RelatedProducts = ({ slug }: RelatedProductsProps) => {
       </div>
 
       <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((item) => (
+        {products.slice(0, 4).map((item) => (
           <div key={item.id} className="bg-white rounded-3xl p-3 shadow-xl flex flex-col">
             <div className="h-[220px] rounded-2xl bg-gray-100 overflow-hidden">
               <img
