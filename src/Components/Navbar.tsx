@@ -3,9 +3,13 @@ import Container from "./Container";
 import Logo from "../assets/Logo.svg";
 import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-
+import { useSelector } from "react-redux";
+import type { RootState } from "../Redux/store";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const cartCount = useSelector((state: RootState) =>
+    state.cart.products.reduce((acc, item) => acc + item.quantity, 0)
+  );
  const navigate = useNavigate();
   const navTextClass =
     "cursor-pointer font-rubik text-[16px] font-semibold leading-[16px] tracking-normal text-gray-900 transition hover:text-gray-600";
@@ -66,9 +70,12 @@ const Navbar = () => {
               className="relative rounded-full p-2 transition hover:bg-gray-100"
             >
               <FiShoppingCart className="h-5 w-5 text-gray-700" />
-              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[10px] text-white">
-                2
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-black text-[10px] text-white">
+                  {cartCount > 99 ? "99+" : cartCount}
+                </span>
+              )}
+              
             </button>
           </div>
         </div>

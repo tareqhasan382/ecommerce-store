@@ -4,8 +4,11 @@ import Container from "../Components/Container";
 import { IoMdHeart } from "react-icons/io";
 import { useGetProductByIdQuery } from "../Redux/products/productsApi";
 import RelatedProducts from "../Components/RelatedProducts";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/cardSlice";
 
 const ProductPage = () => {
+  const dispatch = useDispatch();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
@@ -110,11 +113,11 @@ const ProductPage = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-5 gap-3">
+            <div className="flex  gap-3">
               {[38, 39, 40, 41, 42].map((size) => (
                 <button
                   key={size}
-                  className="border rounded-lg py-2 font-medium hover:bg-black hover:text-white transition"
+                  className="border rounded-lg w-10 h-10 flex items-center justify-center font-medium text-sm hover:bg-black hover:text-white transition"
                 >
                   {size}
                 </button>
@@ -122,11 +125,13 @@ const ProductPage = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button className="flex-1 bg-black text-white py-3 rounded-xl font-semibold">
+            <button
+              onClick={() => dispatch(addToCart(product))}
+              className="flex-1 bg-black text-white py-3 rounded-xl font-semibold">
               Add to Cart
             </button>
-            <button className="w-12 h-12 border rounded-xl">
-              <IoMdHeart size={22} />
+            <button className="w-12 h-12 border rounded-xl flex items-center justify-center">
+              <IoMdHeart size={24} />
             </button>
           </div>
 
