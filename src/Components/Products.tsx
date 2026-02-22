@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import product1 from "../assets/products/product_001.png";
+import { useGetProductsQuery } from "../Redux/products/productsApi";
 
 const Products = () => {
+  const { data } = useGetProductsQuery({
+  offset: 0,
+  limit: 10,
+});
+console.log("data---------------->:",data)
+
   const products = [
     {
       id: 1,
@@ -33,18 +40,10 @@ const Products = () => {
     },
   ];
 
+
   return (
     <section className="relative w-full bg-gray-900 rounded-3xl my-20 px-4 sm:px-8 py-12">
-      {/* Header */}
-      {/* <div className="max-w-[1320px] mx-auto flex flex-col sm:flex-row justify-between gap-8 mb-14">
-        <h1 className="font-rubik font-bold text-xl sm:text-5xl lg:text-6xl text-white uppercase leading-tight">
-          Don’t miss out <br /> new drops
-        </h1>
-
-        <button className="bg-blue-600 hover:bg-blue-500 text-white h-[52px] w-[200px] rounded-2xl font-semibold shadow-lg transition transform hover:scale-105">
-          Shop New Drops
-        </button>
-      </div> */}
+    
       {/* Header */}
       <div className="max-w-[1320px] mx-auto flex items-center justify-between gap-6 mb-14">
         {/* Title */}
