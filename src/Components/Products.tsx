@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../Redux/products/productsApi";
-
 const Products = () => {
   const { data } = useGetProductsQuery({
   offset: 0,
-  limit: 10,
+  limit: 4,
 });
-console.log("data---------------->:",data)
 
 
   return (

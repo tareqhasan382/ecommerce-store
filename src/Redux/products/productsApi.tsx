@@ -22,8 +22,8 @@ export const productApi = baseApi.injectEndpoints({
     }),
 
     /* ======================= GET PRODUCT BY SLUG======================= */
-    getProductBySlug: build.query<Product, string>({
-      query: (slug) => `/products/slug/${slug}`,
+    getRelatedProductsBySlug: build.query<Product[], string>({
+      query: (slug) => `/products/slug/${slug}/related`,
       providesTags: ["products"],
     }),
 
@@ -44,7 +44,7 @@ export const productApi = baseApi.injectEndpoints({
         method: "PUT",
         body,
       }),
-      invalidatesTags:["products"]
+      invalidatesTags: ["products"]
     }),
 
     /* =======================DELETE PRODUCT======================= */
@@ -61,7 +61,7 @@ export const productApi = baseApi.injectEndpoints({
 export const {
   useGetProductsQuery,
   useGetProductByIdQuery,
-  useGetProductBySlugQuery,
+  useGetRelatedProductsBySlugQuery,
   useCreateProductMutation,
   useUpdateProductMutation,
   useDeleteProductMutation,

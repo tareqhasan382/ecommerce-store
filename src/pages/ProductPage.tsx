@@ -1,87 +1,97 @@
 import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Container from "../Components/Container";
-import Products from "../Components/Products";
 import { IoMdHeart } from "react-icons/io";
-
-// demo images
-import img1 from "../assets/products/product_001.png";
-import img2 from "../assets/products/product_001.png";
-import img3 from "../assets/products/product_001.png";
-import img4 from "../assets/products/product_001.png";
-import { useNavigate } from "react-router-dom";
-
-const images = [img1, img2, img3, img4];
+import { useGetProductByIdQuery } from "../Redux/products/productsApi";
+import RelatedProducts from "../Components/RelatedProducts";
 
 const ProductPage = () => {
-  const [activeImage, setActiveImage] = useState(images[0]);
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
+  const {
+    data: product,
+    isLoading,
+    isError,
+  } = useGetProductByIdQuery(Number(id));
+  const [activeImage, setActiveImage] = useState<string | null>(null);
+
+  if (isLoading) {
+    return (
+      <Container className="mt-20 text-center">
+        <p className="text-lg animate-pulse">Loading product...</p>
+      </Container>
+    );
+  }
+
+  if (isError || !product) {
+    return (
+      <Container className="mt-20 text-center">
+        <p className="text-red-500">Product not found.</p>
+      </Container>
+    );
+  }
+
+  const images = product.images || [];
+  const mainImage = activeImage || images[0];
+
   return (
     <Container>
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-        {/* ================= IMAGE SECTION ================= */}
-        <div className="w-full">
-
-          {/* MOBILE VIEW */}
+        {/* IMAGE SECTION */}
+        <div>
+          {/* Mobile */}
           <div className="block lg:hidden space-y-4">
-            {/* Big Image */}
-            <div className="bg-gray-100 rounded-2xl overflow-hidden">
+            <div className="bg-gray-100 rounded-2xl">
               <img
-                src={activeImage}
-                alt="product"
+                src={mainImage}
+                alt={product.title}
                 className="w-full h-[320px] object-contain"
               />
             </div>
 
-            {/* Thumbnails */}
             <div className="grid grid-cols-4 gap-3">
-              {images.map((img, index) => (
+              {images.map((img, i) => (
                 <button
-                  key={index}
+                  key={i}
                   onClick={() => setActiveImage(img)}
-                  className={`rounded-xl overflow-hidden border-2 
-                  ${activeImage === img ? "border-black" : "border-transparent"}`}
+                  className={`border-2 rounded-xl ${mainImage === img ? "border-black" : "border-transparent"
+                    }`}
                 >
                   <img
                     src={img}
-                    alt="thumbnail"
-                    className="w-full h-[70px] object-contain bg-gray-100"
+                    alt="thumb"
+                    className="h-[70px] w-full object-contain bg-gray-100"
                   />
                 </button>
               ))}
             </div>
           </div>
 
-          {/* DESKTOP VIEW */}
+          {/* Desktop */}
           <div className="hidden lg:grid grid-cols-2 gap-4">
-            {images.map((img, index) => (
-              <div
-                key={index}
-                className="bg-gray-100 rounded-2xl overflow-hidden"
-              >
+            {images.map((img, i) => (
+              <div key={i} className="bg-gray-100 rounded-2xl">
                 <img
                   src={img}
                   alt="product"
-                  className="w-full h-[260px] object-contain hover:scale-105 transition"
+                  className="h-[260px] w-full object-contain"
                 />
               </div>
             ))}
           </div>
-
         </div>
 
-        {/* ================= PRODUCT INFO ================= */}
+        {/* PRODUCT INFO */}
         <div className="space-y-6">
-          <span className="text-sm uppercase tracking-wide text-gray-500">
-            New Release
+          <span className="text-sm uppercase text-gray-500">
+            {product.category?.name}
           </span>
 
-          <h1 className="text-3xl font-bold">
-            ADIDAS 4DFWD X PARLEY RUNNING SHOES
-          </h1>
+          <h1 className="text-3xl font-bold">{product.title}</h1>
 
-          <p className="text-2xl font-semibold">$125.00</p>
-
+          <p className="text-2xl font-semibold">${product.price}</p>
           {/* Colors */}
           <div>
             <p className="font-medium mb-2">Color</p>
@@ -111,40 +121,33 @@ const ProductPage = () => {
               ))}
             </div>
           </div>
-
-          {/* Actions */}
           <div className="flex items-center gap-4">
-            <button className="flex-1 bg-black text-white py-3 rounded-xl font-semibold hover:bg-gray-900 transition">
+            <button className="flex-1 bg-black text-white py-3 rounded-xl font-semibold">
               Add to Cart
             </button>
-            <button className="w-12 h-12 flex items-center justify-center border rounded-xl hover:bg-gray-100">
+            <button className="w-12 h-12 border rounded-xl">
               <IoMdHeart size={22} />
             </button>
           </div>
 
           <button
             onClick={() => navigate("/cart")}
-            className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
+            className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold"
+          >
             Buy Now
           </button>
 
-          {/* About */}
           <div className="pt-6 border-t">
             <h3 className="font-semibold text-lg mb-2">About the product</h3>
             <p className="text-gray-600 leading-relaxed">
-              Shadow Navy / Army Green <br />
-              This product is excluded from all promotional discounts and offers.
-              Pay over time in interest-free installments with Affirm, Klarna or
-              Afterpay. Join adiClub to get unlimited free shipping, returns, &
-              exchanges.
+              {product.description}
             </p>
           </div>
         </div>
-
       </div>
 
-      {/* Related products */}
-      <Products />
+      {/* Related / More Products */}
+      <RelatedProducts slug={product.slug} />
     </Container>
   );
 };
