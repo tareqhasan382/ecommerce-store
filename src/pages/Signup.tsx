@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import authImage from "../assets/auth.jpg"
 const Signup = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center px-4 mt-20 md:mt-0">
       <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full overflow-hidden flex flex-col md:flex-row">
 
         {/* Left Branding */}
