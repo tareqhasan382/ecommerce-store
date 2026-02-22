@@ -46,21 +46,21 @@ const Products = () => {
         </button>
       </div> */}
       {/* Header */}
-<div className="max-w-[1320px] mx-auto flex items-center justify-between gap-6 mb-14">
-  {/* Title */}
-  <h1
-    className="
+      <div className="max-w-[1320px] mx-auto flex items-center justify-between gap-6 mb-14">
+        {/* Title */}
+        <h1
+          className="
       font-rubik font-bold uppercase leading-tight text-white
       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
       max-w-[520px]
     "
-  >
-    Don’t miss out <br /> new drops
-  </h1>
+        >
+          Don’t miss out <br /> new drops
+        </h1>
 
-  {/* CTA Button */}
-  <button
-    className="
+        {/* CTA Button */}
+        <button
+          className="
       bg-blue-600 hover:bg-blue-500 text-white
       h-[42px] sm:h-[46px] md:h-[52px]
       px-5 sm:px-6 md:px-8
@@ -69,10 +69,10 @@ const Products = () => {
       shadow-lg transition transform hover:scale-105
       whitespace-nowrap
     "
-  >
-    Shop New Drops
-  </button>
-</div>
+        >
+          Shop New Drops
+        </button>
+      </div>
 
       {/* Products Grid */}
       <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
