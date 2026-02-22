@@ -34,55 +34,83 @@ const Products = () => {
   ];
 
   return (
-    <div className="relative w-full bg-gray-900 p-10 rounded-3xl my-20 flex flex-col items-center gap-16">
-      
-      {/* Hero Text + Button */}
-      <div className="relative w-full flex justify-between items-start max-w-[1320px]">
-        <h1 className="font-rubik font-bold text-6xl md:text-5xl sm:text-4xl text-white uppercase leading-tight max-w-lg">
+    <section className="relative w-full bg-gray-900 rounded-3xl my-20 px-4 sm:px-8 py-12">
+      {/* Header */}
+      {/* <div className="max-w-[1320px] mx-auto flex flex-col sm:flex-row justify-between gap-8 mb-14">
+        <h1 className="font-rubik font-bold text-xl sm:text-5xl lg:text-6xl text-white uppercase leading-tight">
           Don’t miss out <br /> new drops
         </h1>
-        <div className="flex items-end">
-          <button className="bg-blue-600 hover:bg-blue-500 text-white h-[52px] w-[200px] rounded-2xl font-semibold shadow-lg transition transform hover:scale-105">
-            Shop New Drops
-          </button>
-        </div>
-      </div>
 
-      {/* Product Cards */}
-      <div className="w-full max-w-[1320px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <button className="bg-blue-600 hover:bg-blue-500 text-white h-[52px] w-[200px] rounded-2xl font-semibold shadow-lg transition transform hover:scale-105">
+          Shop New Drops
+        </button>
+      </div> */}
+      {/* Header */}
+<div className="max-w-[1320px] mx-auto flex items-center justify-between gap-6 mb-14">
+  {/* Title */}
+  <h1
+    className="
+      font-rubik font-bold uppercase leading-tight text-white
+      text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+      max-w-[520px]
+    "
+  >
+    Don’t miss out <br /> new drops
+  </h1>
+
+  {/* CTA Button */}
+  <button
+    className="
+      bg-blue-600 hover:bg-blue-500 text-white
+      h-[42px] sm:h-[46px] md:h-[52px]
+      px-5 sm:px-6 md:px-8
+      rounded-xl sm:rounded-2xl
+      font-semibold text-sm sm:text-base
+      shadow-lg transition transform hover:scale-105
+      whitespace-nowrap
+    "
+  >
+    Shop New Drops
+  </button>
+</div>
+
+      {/* Products Grid */}
+      <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
         {products.map((item) => (
           <div
             key={item.id}
-            className="bg-white p-2 shadow-2xl w-full overflow-hidden hover:shadow-3xl transition-shadow duration-500 rounded-3xl flex flex-col"
+            className="bg-white rounded-3xl p-2 shadow-xl hover:shadow-2xl transition flex flex-col"
           >
-            {/* Product Image */}
-            <div className="h-[350px] w-full overflow-hidden rounded-3xl p-1 bg-white">
+            {/* Image */}
+            <div className="h-[220px] sm:h-[280px] lg:h-[350px] w-full overflow-hidden rounded-2xl bg-gray-100">
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-full h-full object-cover rounded-3xl transform transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
 
-            {/* Product Info */}
-            <div className="flex flex-col flex-1 gap-4">
-              <h3 className="font-rubik font-bold text-xl text-gray-900">
+            {/* Content */}
+            <div className="flex flex-col flex-1 px-2 pt-4">
+              <h3 className="font-rubik font-bold text-base sm:text-lg text-gray-900 mb-2">
                 {item.name}
               </h3>
-              <p className="text-gray-600 flex-1">{item.description}</p>
 
-              {/* View Product Button always at bottom */}
-              <Link to={`/details/${item.id}`}>
-              <button className="h-[48px] bg-black text-white uppercase rounded-2xl w-full font-semibold hover:bg-gray-800 transition mt-auto">
-                View Product
-              </button>
+              <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3">
+                {item.description}
+              </p>
+
+              {/* Button always bottom */}
+              <Link to={`/details/${item.id}`} className="mt-auto">
+                <button className="h-[46px] w-full bg-black text-white uppercase rounded-xl font-semibold hover:bg-gray-800 transition">
+                  View Product
+                </button>
               </Link>
             </div>
           </div>
         ))}
       </div>
-
-    </div>
+    </section>
   );
 };
 
