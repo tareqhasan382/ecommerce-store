@@ -1,31 +1,25 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Category, Product } from '../../types/product';
+import type { Category, Product } from "../../types/product";
+import baseApi from "../api/baseApi";
 
-
-export const categoriesApi = createApi({
-  reducerPath: 'categoriesApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://api.escuelajs.co/api/v1/' }),
-  tagTypes: ['Category', 'Product'],
+export const categoriesApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     // Get all categories
     getCategories: builder.query<Category[], void>({
       query: () => `categories`,
-      providesTags: (result) =>
-        result
-          ? [...result.map(({ id }) => ({ type: 'Category' as const, id })), { type: 'Category', id: 'LIST' }]
-          : [{ type: 'Category', id: 'LIST' }],
+      providesTags: ["categories"],
     }),
+   
 
     // Get category by ID
     getCategoryById: builder.query<Category, number>({
       query: (id) => `categories/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Category', id }],
+      providesTags: ["categories"],
     }),
 
     // Get category by slug
     getCategoryBySlug: builder.query<Category, string>({
       query: (slug) => `categories/slug/${slug}`,
-      providesTags: (result, error, slug) => [{ type: 'Category', id: result?.id }],
+      providesTags: ["categories"],
     }),
 
     // Create a new category
@@ -35,7 +29,7 @@ export const categoriesApi = createApi({
         method: 'POST',
         body,
       }),
-      invalidatesTags: [{ type: 'Category', id: 'LIST' }],
+      invalidatesTags: ["categories"],
     }),
 
     // Update a category by ID
@@ -45,7 +39,7 @@ export const categoriesApi = createApi({
         method: 'PUT',
         body,
       }),
-      invalidatesTags: (result, error, { id }) => [{ type: 'Category', id }],
+      invalidatesTags: ["categories"],
     }),
 
     // Delete a category by ID
@@ -54,20 +48,18 @@ export const categoriesApi = createApi({
         url: `categories/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: [{ type: 'Category', id: 'LIST' }],
+      invalidatesTags: ["categories"],
     }),
 
     // Get all products by category ID
     getProductsByCategory: builder.query<Product[], number>({
       query: (id) => `categories/${id}/products`,
-      providesTags: (result, error, id) =>
-        result
-          ? [...result.map(({ id }) => ({ type: 'Product' as const, id }))]
-          : [],
+      providesTags: ["categories"],
     }),
   }),
 });
 
+// Export hooks for usage in functional components
 export const {
   useGetCategoriesQuery,
   useGetCategoryByIdQuery,
