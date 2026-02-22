@@ -7,7 +7,7 @@ const Layout = () => {
     <div className="min-h-screen w-full bg-[#e0e0df] overflow-hidden">
       
       {/* Top spacing wrapper */}
-      <div className="pt-[32px]">
+      <div className="pt-[102px]">
         <Navbar />
       </div>
 

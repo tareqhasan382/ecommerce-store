@@ -1,36 +1,46 @@
+import { useState } from "react";
 import Container from "./Container";
 import Logo from "../assets/Logo.svg";
-import { FiSearch, FiUser, FiShoppingCart } from "react-icons/fi";
+import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navTextClass =
     "cursor-pointer font-rubik text-[16px] font-semibold leading-[16px] tracking-normal text-gray-900 transition hover:text-gray-600";
 
   return (
-    <nav className="w-full">
+    <nav className="w-full fixed top-5 left-0 z-50">
       <Container>
-        <div className="flex h-[96px] items-center justify-between rounded-2xl bg-white px-6 shadow-sm">
-          
-          {/* Left side */}
-          <div className="flex items-center gap-8">
+        <div className="flex bg-white h-[96px] items-center justify-between rounded-2xl px-4">
+
+          {/* Hamburger Menu - Mobile only */}
+          <button
+            className="md:hidden rounded-full p-2 hover:bg-gray-100 transition"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FiX className="h-6 w-6 text-gray-700" /> : <FiMenu className="h-6 w-6 text-gray-700" />}
+          </button>
+
+          {/* Left Menu - Desktop only */}
+          <div className="hidden md:flex items-center gap-8">
             <p className={navTextClass}>New Drop</p>
             <p className={navTextClass}>Men</p>
             <p className={navTextClass}>Women</p>
           </div>
 
-          {/* Middle (Logo) */}
-          <div className="flex items-center">
+          {/* Middle - Logo */}
+          <div className="flex items-center justify-center flex-1 md:flex-none">
             <img
               src={Logo}
-              alt="Zavisoft Logo"
+              alt="Logo"
               className="h-[32px] w-[128px] object-contain cursor-pointer"
             />
           </div>
 
-          {/* Right side */}
+          {/* Right side icons */}
           <div className="flex items-center gap-4">
-            
-            {/* Search input */}
+            {/* Search input - hide on small screens */}
             <div className="relative hidden md:block">
               <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
               <input
@@ -40,7 +50,7 @@ const Navbar = () => {
               />
             </div>
 
-            {/* User */}
+            {/* User Icon */}
             <button
               aria-label="User account"
               className="rounded-full p-2 transition hover:bg-gray-100"
@@ -48,7 +58,7 @@ const Navbar = () => {
               <FiUser className="h-5 w-5 text-gray-700" />
             </button>
 
-            {/* Cart */}
+            {/* Cart Icon */}
             <button
               aria-label="Shopping cart"
               className="relative rounded-full p-2 transition hover:bg-gray-100"
@@ -58,9 +68,17 @@ const Navbar = () => {
                 2
               </span>
             </button>
-
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="md:hidden bg-white shadow-lg rounded-xl mt-2 p-4 flex flex-col gap-4">
+            <p className={navTextClass}>New Drop</p>
+            <p className={navTextClass}>Men</p>
+            <p className={navTextClass}>Women</p>
+          </div>
+        )}
       </Container>
     </nav>
   );
