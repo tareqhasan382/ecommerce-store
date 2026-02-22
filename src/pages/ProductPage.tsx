@@ -8,12 +8,13 @@ import img1 from "../assets/products/product_001.png";
 import img2 from "../assets/products/product_001.png";
 import img3 from "../assets/products/product_001.png";
 import img4 from "../assets/products/product_001.png";
+import { useNavigate } from "react-router-dom";
 
 const images = [img1, img2, img3, img4];
 
 const ProductPage = () => {
   const [activeImage, setActiveImage] = useState(images[0]);
-
+  const navigate = useNavigate();
   return (
     <Container>
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -121,7 +122,9 @@ const ProductPage = () => {
             </button>
           </div>
 
-          <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
+          <button
+            onClick={() => navigate("/cart")}
+            className="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
             Buy Now
           </button>
 
