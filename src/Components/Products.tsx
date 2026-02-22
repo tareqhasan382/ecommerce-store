@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import product1 from "../assets/products/product_001.png";
 import { useGetProductsQuery } from "../Redux/products/productsApi";
 
 const Products = () => {
@@ -8,37 +7,6 @@ const Products = () => {
   limit: 10,
 });
 console.log("data---------------->:",data)
-
-  const products = [
-    {
-      id: 1,
-      name: "ADIDAS 4DFWD X PARLEY RUNNING SHOES",
-      description:
-        "Lightweight, responsive, and eco-friendly running shoes for everyday performance.",
-      image: product1,
-    },
-    {
-      id: 2,
-      name: "NIKE AIR MAX 270 REACT",
-      description:
-        "Smooth cushioning and stylish design for everyday running and casual wear.",
-      image: product1,
-    },
-    {
-      id: 3,
-      name: "PUMA RS-X³",
-      description:
-        "Bold colors, retro style, and maximum comfort for all-day wear.",
-      image: product1,
-    },
-    {
-      id: 4,
-      name: "REEBOK ZIG KINETICA",
-      description:
-        "Innovative sole technology for superior comfort and energy return.",
-      image: product1,
-    },
-  ];
 
 
   return (
@@ -75,7 +43,7 @@ console.log("data---------------->:",data)
 
       {/* Products Grid */}
       <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-        {products.map((item) => (
+        {data?.map((item) => (
           <div
             key={item.id}
             className="bg-white rounded-3xl p-2 shadow-xl hover:shadow-2xl transition flex flex-col"
@@ -83,8 +51,8 @@ console.log("data---------------->:",data)
             {/* Image */}
             <div className="h-[220px] sm:h-[280px] lg:h-[350px] w-full overflow-hidden rounded-2xl bg-gray-100">
               <img
-                src={item.image}
-                alt={item.name}
+                src={item.images[0]}
+                alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
@@ -92,7 +60,7 @@ console.log("data---------------->:",data)
             {/* Content */}
             <div className="flex flex-col flex-1 px-2 pt-4">
               <h3 className="font-rubik font-bold text-base sm:text-lg text-gray-900 mb-2">
-                {item.name}
+                {item.title}
               </h3>
 
               <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3">
