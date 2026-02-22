@@ -4,6 +4,9 @@ import App from "../App";
 import NotFound from "../pages/NotFound";
 import ProductPage from "../pages/ProductPage";
 import Cart from "../pages/Cart";
+import AuthPage from "../pages/AuthPage";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
 
 const routes = createBrowserRouter([
     {
@@ -29,6 +32,22 @@ const routes = createBrowserRouter([
                 element: (
 
                     <Cart />
+
+                ),
+            },
+            {
+                path: "/login",
+                element: (
+
+                    <Login />
+
+                ),
+            },
+            {
+                path: "/signup",
+                element: (
+
+                    <Signup />
 
                 ),
             },

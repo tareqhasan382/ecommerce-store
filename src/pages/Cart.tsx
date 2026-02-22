@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import product from "../assets/products/product_001.png";
 import { GrFavorite } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
@@ -30,6 +31,7 @@ const cartItems = [
 ];
 
 const Cart = () => {
+  const navigate = useNavigate(); // Hook to navigate programmatically
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const shipping = 0;
   const tax = subtotal * 0.08;
@@ -49,10 +51,16 @@ const Cart = () => {
           </p>
         </div>
         <div className="flex gap-2 flex-shrink-0">
-          <button className="bg-white text-blue-600 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-blue-50 transition">
+          <button
+            onClick={() => navigate("/signup")}
+            className="bg-white text-blue-600 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-blue-50 transition"
+          >
             Join Us
           </button>
-          <button className="border border-white text-white font-semibold text-sm px-4 py-2 rounded-lg hover:bg-white/10 transition">
+          <button
+            onClick={() => navigate("/login")}
+            className="border border-white text-white font-semibold text-sm px-4 py-2 rounded-lg hover:bg-white/10 transition"
+          >
             Sign In
           </button>
         </div>
@@ -71,7 +79,6 @@ const Cart = () => {
 
       {/* Main Layout */}
       <div className="flex flex-col lg:flex-row gap-8 items-start">
-
         {/* Cart Items */}
         <div className="flex-1 flex flex-col gap-5 w-full">
           {cartItems.map((item, index) => (
@@ -80,16 +87,10 @@ const Cart = () => {
               className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6 flex gap-4 sm:gap-6 hover:shadow-md transition duration-300"
               style={{ animationDelay: `${index * 80}ms` }}
             >
-              {/* Product Image */}
               <div className="w-[100px] h-[100px] sm:w-[140px] sm:h-[140px] flex-shrink-0 bg-gray-50 rounded-xl overflow-hidden flex items-center justify-center p-2">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-contain"
-                />
+                <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
               </div>
 
-              {/* Details */}
               <div className="flex-1 min-w-0 flex flex-col justify-between gap-3">
                 <div className="flex items-start justify-between gap-2">
                   <div>
@@ -104,8 +105,7 @@ const Cart = () => {
                   </span>
                 </div>
 
-                {/* Size & Quantity + Actions */}
-                <div className="  items-center justify-between flex-wrap gap-3">
+                <div className="items-center justify-between flex-wrap gap-3 flex">
                   <div className="flex gap-2 flex-wrap">
                     <span className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full font-medium">
                       Size {item.size}
@@ -114,7 +114,6 @@ const Cart = () => {
                       Qty {item.quantity}
                     </span>
                   </div>
-                  {/* Action Buttons */}
                   <div className="flex items-center gap-2">
                     <button className="h-8 w-8 flex items-center justify-center rounded-full bg-gray-50 border border-gray-200 hover:border-blue-400 hover:text-blue-500 transition text-gray-500">
                       <GrFavorite size={15} />
@@ -197,7 +196,6 @@ const Cart = () => {
             </p>
           </div>
         </div>
-
       </div>
     </Container>
   );
