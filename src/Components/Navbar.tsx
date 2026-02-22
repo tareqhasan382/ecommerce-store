@@ -2,10 +2,11 @@ import { useState } from "react";
 import Container from "./Container";
 import Logo from "../assets/Logo.svg";
 import { FiSearch, FiUser, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+ const navigate = useNavigate();
   const navTextClass =
     "cursor-pointer font-rubik text-[16px] font-semibold leading-[16px] tracking-normal text-gray-900 transition hover:text-gray-600";
 
@@ -60,6 +61,7 @@ const Navbar = () => {
 
             {/* Cart Icon */}
             <button
+            onClick={() => navigate("/cart")}
               aria-label="Shopping cart"
               className="relative rounded-full p-2 transition hover:bg-gray-100"
             >

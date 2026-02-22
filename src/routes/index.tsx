@@ -25,7 +25,7 @@ const routes = createBrowserRouter([
                 ),
             },
             {
-                path: "/card",
+                path: "/cart",
                 element: (
 
                     <Cart />
