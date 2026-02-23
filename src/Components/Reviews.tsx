@@ -5,7 +5,7 @@ const reviews = [1, 2, 3];
 
 const Reviews = () => {
     return (
-        <section className="w-full max-w-[1320px] mx-auto py-20 px-4 sm:px-6">
+        <section className="w-full max-w-[1320px] lg:px-8 mx-auto py-20 px-4 sm:px-6">
 
             {/* Header */}
             <div className="flex items-center justify-between mb-12">
