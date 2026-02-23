@@ -8,9 +8,9 @@ const Categories = () => {
 
   if (isLoading) return <p className="text-white p-10">Loading categories...</p>;
   if (isError) return <p className="text-white p-10">Failed to load categories.</p>;
-
+// max-w-[1320px]
   return (
-    <section className="w-full max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-0 bg-black text-white">
+    <section className="w-full  mx-auto max-w-[1320px] px-4 sm:px-6 lg:px-8  px-4 sm:px-6 lg:px-0 text-white">
       {/* Header */}
       <div className="flex items-center justify-between py-10">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-rubik font-bold uppercase tracking-wide">
@@ -28,11 +28,13 @@ const Categories = () => {
       </div>
 
       {/* Categories Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 ml-20 gap-6">
-        {categories?.slice(0, 2).map((category) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 ml-20">
+        {categories?.slice(0, 2).map((category,index) => (
           <div
             key={category.id}
-            className="relative group rounded-tl-3xl overflow-hidden bg-amber-100 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-[320px] sm:h-[480px] lg:h-[600px]"
+            className={`relative group overflow-hidden bg-gray-100 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-[320px] sm:h-[480px] lg:h-[600px]
+      ${index === 0 ? "rounded-tl-3xl bg-gray-200" : ""}
+    `}
           >
             <div className="flex items-center justify-center flex-1">
               <img

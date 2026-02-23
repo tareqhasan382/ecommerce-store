@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full fixed top-5 left-0 z-50">
-      <Container>
+      <Container className=" mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8 ">
         <div className="flex bg-white h-[96px] items-center justify-between rounded-2xl px-4">
 
           {/* Hamburger Menu - Mobile only */}

@@ -8,14 +8,14 @@ const Products = () => {
 
 
   return (
-    <section className="relative w-full bg-gray-900 rounded-3xl my-20 px-4 sm:px-8 py-12">
+    <section className="relative w-full rounded-3xl my-20 px-4 sm:px-8 py-12">
     
-      {/* Header */}
-      <div className="max-w-[1320px] mx-auto flex items-center justify-between gap-6 mb-14">
+      {/* Header max-w-[1320px]*/}
+      <div className=" mx-auto flex items-center justify-between gap-6 mb-14">
         {/* Title */}
         <h1
           className="
-      font-rubik font-bold uppercase leading-tight text-white
+      font-rubik font-bold uppercase leading-tight text-black
       text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
       max-w-[520px]
     "

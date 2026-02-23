@@ -4,7 +4,7 @@ import NikeProduct_2 from "../assets/header/Rectangle-2.png";
 
 const Header = () => {
   return (
-    <div className="mt-[60px] sm:mt-[100px] lg:mt-[152px] flex justify-center relative w-full max-w-[1320px] mx-auto px-3 sm:px-4 lg:px-0">
+    <div className=" mt-[10px] sm:mt-[100px] lg:mt-[152px] flex justify-center relative w-full max-w-[1320px] mx-auto px-3 sm:px-4 lg:px-0">
       {/* Main Header Image */}
       <img
         src={HeaderImage}
@@ -20,7 +20,7 @@ const Header = () => {
       </div>
 
       {/* Overlay small product images — bottom right */}
-      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex flex-col gap-2 sm:gap-4">
+      <div className="absolute bottom-3 right-10 lg:right-10 sm:bottom-4 sm:right-4 flex flex-col gap-2 sm:gap-4">
         <img
           src={NikeProduct_1}
           alt="Product 1"
@@ -34,7 +34,7 @@ const Header = () => {
       </div>
 
       {/* Overlay text & CTA — bottom left */}
-      <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 lg:bottom-4 lg:left-4 max-w-[55%] sm:max-w-[380px] lg:max-w-[490px]">
+      <div className="absolute bottom-3 left-6 sm:bottom-4 sm:left-4 lg:bottom-4 lg:left-10 max-w-[55%] sm:max-w-[380px] lg:max-w-[490px]">
         <h3 className="text-xl sm:text-4xl lg:text-6xl font-semibold text-white leading-tight drop-shadow-lg">
           NIKE AIR MAX
         </h3>

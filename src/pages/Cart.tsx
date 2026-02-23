@@ -32,7 +32,7 @@ const Cart = () => {
   const total = subtotal + shipping + tax;
 
   return (
-    <Container className="mt-20 pb-20">
+    <Container className="mt-20 pb-20 mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
 
       {/* Promo Banner */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-2xl px-5 sm:px-8 py-4 mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
