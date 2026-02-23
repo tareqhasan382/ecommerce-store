@@ -6,7 +6,7 @@ import { AiFillTwitterCircle, AiFillTikTok } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <footer className="mt-24 ">
+    <footer className="mt-24 font-rubik">
       <Container>
 
         {/* ================= CTA SECTION ================= */}

@@ -4,7 +4,7 @@ import Navbar from "../Components/Navbar";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen w-full bg-[#e0e0df] overflow-hidden items-center justify-center">
+    <div className="min-h-screen w-full bg-[#e0e0df] overflow-hidden items-center justify-center font-rubik">
 
       {/* Top spacing wrapper */}
       <div className="pt-[102px]">

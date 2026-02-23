@@ -39,7 +39,7 @@ const ProductPage = () => {
   const mainImage = activeImage || images[0];
 
   return (
-    <Container className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
+    <Container className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8 font-rubik">
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* IMAGE SECTION */}

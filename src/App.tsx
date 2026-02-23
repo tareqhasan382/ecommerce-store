@@ -6,7 +6,7 @@ import Reviews from "./Components/Reviews";
 
 function App() {
   return (
-    <Container >
+    <Container className="font-rubik" >
 
       {/* Main hero area */}
       <div className="w-full flex justify-center items-center h-[265px] px-4">
