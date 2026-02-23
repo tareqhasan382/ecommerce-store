@@ -1,12 +1,13 @@
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { RiExternalLinkFill } from "react-icons/ri";
 import { useGetCategoriesQuery } from "../Redux/categories/categoriesApi";
+import Skeleton from "./Skeletons";
 
 const Categories = () => {
   // Fetch categories from API
   const { data: categories, isLoading, isError } = useGetCategoriesQuery();
 
-  if (isLoading) return <p className="text-white p-10">Loading categories...</p>;
+  if (isLoading) return <Skeleton variant="category-grid" />;
   if (isError) return <p className="text-white p-10">Failed to load categories.</p>;
 // max-w-[1320px]
   return (

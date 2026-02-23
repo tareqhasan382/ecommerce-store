@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetRelatedProductsBySlugQuery } from "../Redux/products/productsApi";
 import Container from "./Container";
+import Skeleton from "./Skeletons";
 
 interface RelatedProductsProps {
   slug: string;
@@ -9,13 +10,7 @@ interface RelatedProductsProps {
 const RelatedProducts = ({ slug }: RelatedProductsProps) => {
   const { data: products, isLoading, isError } = useGetRelatedProductsBySlugQuery(slug);
 
-  if (isLoading) {
-    return (
-      <Container>
-        <p className="mt-20 text-center">Loading related products...</p>
-      </Container>
-    );
-  }
+if (isLoading) return <Skeleton variant="product-grid" count={8} />;
 
   if (isError || !products?.length) return null;
 

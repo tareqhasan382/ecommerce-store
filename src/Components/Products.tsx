@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../Redux/products/productsApi";
+import Skeleton from "./Skeletons";
 const Products = () => {
-  const { data } = useGetProductsQuery({
+  const { data ,isLoading} = useGetProductsQuery({
   offset: 0,
   limit: 4,
 });
 
-
+if (isLoading) return <Skeleton variant="product-grid" count={8} />;
   return (
     <section className="relative w-full rounded-3xl my-20 px-1 md:px-2 py-12">
     

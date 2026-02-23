@@ -6,6 +6,7 @@ import { useGetProductByIdQuery } from "../Redux/products/productsApi";
 import RelatedProducts from "../Components/RelatedProducts";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/cardSlice";
+import Skeleton from "../Components/Skeletons";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const ProductPage = () => {
   if (isLoading) {
     return (
       <Container className="mt-20 text-center">
-        <p className="text-lg animate-pulse">Loading product...</p>
+        <Skeleton variant="product-detail" />
       </Container>
     );
   }
