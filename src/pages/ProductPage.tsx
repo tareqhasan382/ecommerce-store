@@ -39,7 +39,7 @@ const ProductPage = () => {
   const mainImage = activeImage || images[0];
 
   return (
-    <Container>
+    <Container className="mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8">
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
 
         {/* IMAGE SECTION */}
@@ -130,8 +130,8 @@ const ProductPage = () => {
               className="flex-1 bg-black text-white py-3 rounded-xl font-semibold">
               Add to Cart
             </button>
-            <button className="w-12 h-12 border rounded-xl flex items-center justify-center">
-              <IoMdHeart size={24} />
+            <button className="w-12 h-12 border rounded-xl flex items-center justify-center bg-black">
+              <IoMdHeart size={24} className=" text-white " />
             </button>
           </div>
 

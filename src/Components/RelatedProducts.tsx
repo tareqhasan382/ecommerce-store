@@ -20,9 +20,9 @@ const RelatedProducts = ({ slug }: RelatedProductsProps) => {
   if (isError || !products?.length) return null;
 
   return (
-    <section className="relative w-full bg-gray-900 rounded-3xl my-20 px-4 sm:px-8 py-12">
+    <section className="relative w-full rounded-3xl my-20 px-4 sm:px-8 py-12">
       <div className="max-w-[1320px] mx-auto mb-12">
-        <h2 className="text-3xl font-bold text-white">You may also like</h2>
+        <h2 className="text-3xl font-bold text-black">You may also like</h2>
       </div>
 
       <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
