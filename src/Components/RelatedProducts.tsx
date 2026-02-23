@@ -10,7 +10,7 @@ interface RelatedProductsProps {
 const RelatedProducts = ({ slug }: RelatedProductsProps) => {
   const { data: products, isLoading, isError } = useGetRelatedProductsBySlugQuery(slug);
 
-if (isLoading) return <Skeleton variant="product-grid" count={8} />;
+if (isLoading) return <Container><Skeleton variant="product-grid" count={8} /></Container>;
 
   if (isError || !products?.length) return null;
 
