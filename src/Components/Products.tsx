@@ -2,15 +2,31 @@ import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../Redux/products/productsApi";
 import Skeleton from "./Skeletons";
 const Products = () => {
-  const { data ,isLoading} = useGetProductsQuery({
-  offset: 0,
-  limit: 4,
-});
+  const { data, isLoading } = useGetProductsQuery({
+    offset: 0,
+    limit: 4,
+  });
 
-if (isLoading) return <Skeleton variant="product-grid" count={8} />;
+  if (isLoading) return <Skeleton variant="product-grid" count={8} />;
+  if (!data || data.length === 0) return (
+    <section className="relative w-full my-20 px-1 md:px-2 py-12">
+      <div className="max-w-[1320px] mx-auto flex flex-col items-center justify-center py-24 gap-4 text-center">
+        <div className="text-7xl">📦</div>
+        <h2 className="font-rubik font-bold text-2xl sm:text-3xl text-gray-800 uppercase">
+          No Products Found
+        </h2>
+        <p className="text-gray-400 text-sm sm:text-base max-w-[360px]">
+          Looks like there's nothing here yet. Check back soon for new drops.
+        </p>
+        <button className="mt-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl text-sm uppercase tracking-wide transition">
+          Refresh
+        </button>
+      </div>
+    </section>
+  );
   return (
     <section className="relative w-full rounded-3xl my-20 px-1 md:px-2 py-12">
-    
+
       {/* Header max-w-[1320px]*/}
       <div className=" mx-auto flex items-center justify-between gap-6 md:gap-2 mb-14">
         {/* Title */}
@@ -41,7 +57,7 @@ if (isLoading) return <Skeleton variant="product-grid" count={8} />;
 
       {/* Products Grid */}
       <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
-        {data?.map((item) => (
+        {data.length>0 && data?.map((item) => (
           <div
             key={item.id}
             className="bg-white rounded-3xl p-2 shadow-xl hover:shadow-2xl transition flex flex-col"
