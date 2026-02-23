@@ -8,15 +8,15 @@ const Products = () => {
 
 
   return (
-    <section className="relative w-full rounded-3xl my-20 px-4 sm:px-8 py-12">
+    <section className="relative w-full rounded-3xl my-20 px-1 md:px-2 py-12">
     
       {/* Header max-w-[1320px]*/}
-      <div className=" mx-auto flex items-center justify-between gap-6 mb-14">
+      <div className=" mx-auto flex items-center justify-between gap-6 md:gap-2 mb-14">
         {/* Title */}
         <h1
           className="
       font-rubik font-bold uppercase leading-tight text-black
-      text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl
+      text-lg sm:text-lg md:text-lg lg:text-5xl xl:text-6xl
       max-w-[520px]
     "
         >
@@ -27,8 +27,7 @@ const Products = () => {
         <button
           className="
       bg-blue-600 hover:bg-blue-500 text-white
-      h-[42px] sm:h-[46px] md:h-[52px]
-      px-5 sm:px-6 md:px-8
+      h-[42px] sm:h-[46px] md:h-[52px] px-4
       rounded-xl sm:rounded-2xl
       font-semibold text-sm sm:text-base
       shadow-lg transition transform hover:scale-105
@@ -40,7 +39,7 @@ const Products = () => {
       </div>
 
       {/* Products Grid */}
-      <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
         {data?.map((item) => (
           <div
             key={item.id}
@@ -57,7 +56,7 @@ const Products = () => {
 
             {/* Content */}
             <div className="flex flex-col flex-1 px-2 pt-4">
-              <h3 className="font-rubik font-bold text-base sm:text-lg text-gray-900 mb-2">
+              <h3 className="font-rubik font-medium md:font-bold text-sm md:text-base text-gray-900 mb-2">
                 {item.title}
               </h3>
 
@@ -67,7 +66,7 @@ const Products = () => {
 
               {/* Button always bottom */}
               <Link to={`/details/${item.id}`} className="mt-auto">
-                <button className="h-[46px] w-full bg-black text-white uppercase rounded-xl font-semibold hover:bg-gray-800 transition">
+                <button className="h-[46px] w-full bg-black text-white uppercase rounded-xl font-medium md:font-bold text-xs md:text-base hover:bg-gray-800 transition">
                   View Product
                 </button>
               </Link>
